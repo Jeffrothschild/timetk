@@ -142,6 +142,11 @@ plot_anomaly_diagnostics <- function(
     .line_type = 1,
     .line_alpha = 1,
 
+    .point_shape = 16,
+    .point_size = 0.001,
+    .point_alpha = 1,
+    .point_color = "black",
+
     .anom_color = "#e31a1c",
     .anom_alpha = 1,
     .anom_size = 1.5,
@@ -203,6 +208,11 @@ plot_anomaly_diagnostics.data.frame <- function(
     .line_size = 0.5,
     .line_type = 1,
     .line_alpha = 1,
+
+    .point_shape = 16,
+    .point_size = 0.001,
+    .point_alpha = 1,
+    .point_color = "black",
 
     .anom_color = "#e31a1c",
     .anom_alpha = 1,
@@ -307,6 +317,17 @@ plot_anomaly_diagnostics.data.frame <- function(
             alpha    = .line_alpha
         )
 
+
+    # Add points
+    g <- g +
+        ggplot2::geom_point(
+            shape = .point_shape,
+            size = .point_size,
+            alpha = .point_alpha,
+            color = .point_color
+        )
+
+
     # Add Outliers
     g <- g +
         ggplot2::geom_point(ggplot2::aes_string(color = "anomaly"), size = .anom_size, alpha = .anom_alpha,
@@ -391,6 +412,11 @@ plot_anomaly_diagnostics.grouped_df <- function(
     .line_type = 1,
     .line_alpha = 1,
 
+    .point_shape = 16,
+    .point_size = 0.001,
+    .point_alpha = 1,
+    .point_color = "black",
+
     .anom_color = "#e31a1c",
     .anom_alpha = 1,
     .anom_size = 1.5,
@@ -451,6 +477,11 @@ plot_anomaly_diagnostics.grouped_df <- function(
         .line_size          = .line_size,
         .line_type          = .line_type,
         .line_alpha         = .line_alpha,
+
+        .point_shape        = .point_shape,
+        .point_size         =  .point_size,
+        .point_alpha        = .point_alpha,
+        .point_color        = .point_color,
 
         .anom_color         = .anom_color,
         .anom_alpha         = .anom_alpha,
